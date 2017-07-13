@@ -1,0 +1,8 @@
+<tr>
+  <td><%= radio_button_tag :flight_id, flight.id %></td>
+  <th><%= flight.id %></th>
+  <td><%= "#{flight.from_airport.code} #{flight.from_airport.location}" %></td>
+  <td><%= "#{flight.to_airport.code} #{flight.to_airport.location}" %></td>
+  <td><%= flight.date_time.strftime("%b %d %Y %H:%M") %></td>
+  <td><%= minutes_in_words(flight.duration) %></td>
+</tr>

@@ -1,0 +1,9 @@
+<%= provide(:title, "Booking \##{@booking.id}") %>
+
+<div class="container-fluid content">
+  <%= render 'flights/flight_full', flight: @booking.flight %>
+</div>
+
+<% @booking.passengers.each do |passenger| %>
+  <%= render 'passenger', passenger: passenger %>
+<% end %>

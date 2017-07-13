@@ -1,0 +1,8 @@
+<%= provide(:title, 'Booking') %>
+
+<div class="container-fluid content">
+  <h3>Booking on flight no.<b><%= @flight.id %></b></h3>
+  <%= render 'flights/flight_full', flight: @flight %>
+
+  <%= render 'form' %>
+</div>

@@ -1,0 +1,19 @@
+<%= provide(:title, "Flights") %>
+
+<%= render 'form' %>
+
+<% if @flights %>
+  <div class="container-fluid content">
+    <h2>Avaliable flights</h3>
+    <table class="table table-hover">
+      <%= form_tag new_booking_path, method: :get do %>
+        <%= hidden_field_tag :number_of_passengers, @number_of_passengers %>
+        <%= render 'table_header' %>
+        <%= render @flights %>
+        <div class="form-group text-center">
+          <%= submit_tag 'Select', class: "btn primary" %>
+        </div>
+      <% end %>
+    </table>
+  </div>
+<% end %>

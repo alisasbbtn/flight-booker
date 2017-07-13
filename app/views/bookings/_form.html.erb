@@ -1,0 +1,30 @@
+<%= form_for @booking do |f| %>
+  <%= render "shared/errors", object: @booking %>
+  <%= f.hidden_field :flight_id, value: @flight.id %>
+
+  <%= f.fields_for :passengers do |passenger_form| %>
+    <h3>Passenger
+      <b><%= passenger_form.index + 1 %></b>
+    </h3>
+    <div class="form-group row">
+      <div class="col-md-1 text-right col-md-offset-3">
+        <%= passenger_form.label :name %>
+      </div>
+      <div class="col-md-5">
+        <%= passenger_form.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-1 text-right col-md-offset-3">
+        <%= passenger_form.label :email %>
+      </div>
+      <div class="col-md-5">
+        <%= passenger_form.email_field :email, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group text-center">
+    <%= f.submit 'Book', class: 'btn btn-lg primary' %>
+  </div>
+<% end %>

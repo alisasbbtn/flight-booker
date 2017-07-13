@@ -24,7 +24,7 @@ Flight.create!(from_airport_id: 1,
 49.times do
   from_airport_id = Random.rand(1..Airport.count)
   to_airport_id = Random.rand(1..Airport.count)
-  date_time = rand_time(3.months.ago, 3.months.from_now)
+  date_time = rand_time(Time.now, 3.months.from_now)
   duration = Random.rand(60..720)
   Flight.create!(from_airport_id: from_airport_id,
                  to_airport_id: to_airport_id,

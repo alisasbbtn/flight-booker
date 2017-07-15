@@ -1,0 +1,9 @@
+<h1>Thank you for booking your tickets!</h1>
+<%= '=' * 25 %>
+<div>
+  <h2>Dear <%= @passenger.name %>,</h2>
+  <p>Your tickets have been booked succesfully. You can view the booking information
+    <%= link_to 'here', booking_url(@booking) %>.</p>
+
+  <h4>Have a nice flight!</h4>
+</div>

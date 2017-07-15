@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:success] = "Succesfully booked the #{'ticket'.pluralize(@booking.passengers.count)}!"
+      send_mail
       redirect_to @booking
     else
       render 'new'
@@ -26,5 +27,11 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:flight_id, passengers_attributes: %i[id name email])
+  end
+
+  def send_mail
+    @booking.passengers.each do |passenger|
+      PassengerMailer.thank_you(passenger).deliver_now
+    end
   end
 end

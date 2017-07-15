@@ -1,7 +1,9 @@
-Thank you for booking your tickets!
+Thank you for booking your ticket!
 <%= '=' * 25 %>
 Dear <%= @passenger.name %>,
-  Your tickets have been booked succesfully.
+  Your ticket has been booked succesfully.
+
+    Flight details:
     FROM: <%= "#{@flight.from_airport.code} #{@flight.from_airport.location}" %>
     TO: <%= "#{@flight.to_airport.code} #{@flight.to_airport.location}" %>
     Date and time: <%= @flight.date_time.strftime("%b %d %Y %H:%M") %>

@@ -1,9 +1,10 @@
-<h1>Thank you for booking your tickets!</h1>
+<h1>Thank you for booking your ticket!</h1>
 <%= '=' * 25 %>
 <div>
   <h2>Dear <%= @passenger.name %>,</h2>
-  <p>Your tickets have been booked succesfully.</p>
+  <p>Your ticket has been booked succesfully.</p>
   <div>
+    <h3>Flight details:</h3>
     <h4>FROM:
       <small><%= "#{@flight.from_airport.code} #{@flight.from_airport.location}" %></small>
     </h4>
@@ -18,5 +19,5 @@
     </h4>
   </div>
 
-  <h4>Have a nice flight!</h4>
+  <h3>Have a nice flight!</h3>
 </div>

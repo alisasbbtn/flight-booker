@@ -2,8 +2,21 @@
 <%= '=' * 25 %>
 <div>
   <h2>Dear <%= @passenger.name %>,</h2>
-  <p>Your tickets have been booked succesfully. You can view the booking information
-    <%= link_to 'here', booking_url(@booking) %>.</p>
+  <p>Your tickets have been booked succesfully.</p>
+  <div>
+    <h4>FROM:
+      <small><%= "#{@flight.from_airport.code} #{@flight.from_airport.location}" %></small>
+    </h4>
+    <h4>TO:
+      <small><%= "#{@flight.to_airport.code} #{@flight.to_airport.location}" %></small>
+    </h4>
+    <h4>Date and time:
+      <small><%= @flight.date_time.strftime("%b %d %Y %H:%M") %></small>
+    </h4>
+    <h4>Duration:
+      <small><%= minutes_in_words(@flight.duration) %></small>
+    </h4>
+  </div>
 
   <h4>Have a nice flight!</h4>
 </div>
